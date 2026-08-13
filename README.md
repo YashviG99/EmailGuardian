@@ -1,101 +1,115 @@
-# Spam Email Classification System
+# SmartSpamShield – AI Spam Email Detection System
 
-A production-grade machine learning system designed to robustly classify emails as "Spam" or "Ham" (legitimate). This project features a modular pipeline architecture for training and inference, integrated with a modern Streamlit user interface for easy interaction.
+SmartSpamShield is a machine learning web application that detects whether an email is **Spam** or **Ham (Legitimate)** using natural language processing and a trained classification model. The application provides a clean Streamlit interface for real-time predictions and supports batch analysis of email files.
 
-## 🚀 Key Features
+## Features
 
-- **Advanced ML Pipeline**: Modular design separating data ingestion, transformation, and model training.
-- **Multiple Model Support**: evaluation of various algorithms including SVM, Logistic Regression, Decision Trees, and Random Forest.
-- **Interactive Web UI**: Built with Streamlit for real-time single-email analysis and batch processing.
-- **MBOX Support**: Native capability to process and classify entire `mbox` email archives.
-- **Detailed Analytics**: Comprehensive logging and performance metrics (Precision, Recall, F1-Score).
+* Real-time spam email prediction
+* Confidence score for each prediction
+* Batch processing of multiple emails
+* TF-IDF text vectorization
+* Trained machine learning classifier (SVM / Logistic Regression)
+* Interactive Streamlit dashboard
+* Simple and modular project structure
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Language**: Python 3.10+
-- **Frontend**: Streamlit
-- **ML Framework**: Scikit-learn
-- **Data Processing**: Pandas, NumPy, BeautifulSoup4
-- **Project Management**: `uv` (recommended) or `pip`
+* **Python 3.11**
+* **Streamlit**
+* **Scikit-learn**
+* **Pandas**
+* **NumPy**
+* **BeautifulSoup4**
 
-## 📂 Project Structure
+## Project Structure
 
-```
-├── app.py                  # Main Streamlit Web Application
-├── requirements.txt        # Project dependencies
-├── main.py                 # (Optional) Alternative entry point
+```text
+SmartSpamShield/
+├── app.py
+├── requirements.txt
 ├── src/
-│   ├── components/         # Core processing modules (Ingestion, Transformation)
-│   ├── pipeline/           # Orchestration pipelines (Training, Prediction)
-│   ├── config/             # Configuration and parameters
-│   └── utils/              # Helper functions, logging, and state management
-├── data/                   # Dataset storage (inputs)
-├── outputs/                # Training artifacts (models, vectorizers)
-└── logs/                   # System runtime logs
+│   ├── components/
+│   ├── pipeline/
+│   ├── config/
+│   └── utils/
+├── data/
+├── outputs/
+└── logs/
 ```
 
-## ⚡ Installation
+## Installation
 
-1. **Clone the Repository**
-   ```bash
-   git clone <repository_url>
-   cd Spam-Email-Detection
-   ```
+1. Clone the repository
 
-2. **Set up Environment**
-   It is recommended to use a virtual environment.
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
+```bash
+git clone https://github.com/YOUR_USERNAME/SmartSpamShield.git
+cd SmartSpamShield
+```
 
-3. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. Create and activate a virtual environment
 
-## 🖥️ Usage
+```bash
+python -m venv .venv
+```
 
-### 1. Running the Web Application
-Launch the interactive dashboard to classify emails instantly.
+Windows PowerShell:
+
+```powershell
+.\\.venv\\Scripts\\Activate.ps1
+```
+
+3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run the Application
+
+Start the Streamlit application:
 
 ```bash
 streamlit run app.py
 ```
 
-- **Single Email Tab**: Paste email content to get an immediate Spam/Ham prediction with a confidence score.
-- **Batch Processing Tab**: Upload an `.mbox` file to process multiple emails at once and download the results as a CSV.
+Open the local URL shown in the terminal (usually `http://localhost:8501`).
 
-### 2. Training the Model
-(Optional) If you wish to retrain the models on new data:
+## How It Works
 
-1. Place your dataset in `data/dataset/dataset.csv`.
+1. The user enters email text or uploads an email file.
+2. The text is cleaned and preprocessed.
+3. A TF-IDF vectorizer converts the text into numerical features.
+4. The trained machine learning model predicts whether the email is **Spam** or **Ham**.
+5. The prediction and confidence score are displayed in the interface.
+
+## Model Training
+
+To retrain the model with a new dataset:
+
+1. Place the dataset inside the `data/` directory.
 2. Run the training pipeline:
-   ```bash
-   python -m src.pipeline.training_pipeline
-   ```
-3. Artifacts (Model & Vectorizer) will be saved in the `outputs/` directory.
-4. **Important**: Update `src/config/config.py` with the new paths to your generated model and vectorizer if they change.
 
-## ⚙️ Configuration
+```bash
+python -m src.pipeline.training_pipeline
+```
 
-The system is highly configurable via `src/config/config.py`. You can adjust:
-- Model hyperparameters (Grid Search configuration)
-- Input/Output paths
-- Training parameters (Cross-validation folds, etc.)
+The trained model and vectorizer will be saved inside the `outputs/` directory.
 
-## 📊 Model Performance
+## Future Improvements
 
-The pipeline automatically evaluates models using 5-fold cross-validation. Metrics including Accuracy, Precision, Recall, and F1-Score are logged for each experiment. By default, the system selects the best performing model (often SVM or Random Forest) for inference.
+* Email attachment analysis
+* Phishing URL detection
+* Email sender reputation scoring
+* Deep learning (LSTM/BERT) models
+* REST API deployment with FastAPI
+* User authentication and prediction history
 
-## 🤝 Contributing
+## License
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+This project is licensed under the **MIT License**.
 
-## 📝 License
+## Author
 
-Distributed under the MIT License. See `LICENSE` for more information.
+**Yashvi Gheewala**
+
+GitHub: https://github.com/YashviG99
