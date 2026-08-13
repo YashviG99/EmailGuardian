@@ -1,114 +1,115 @@
-# SmartSpamShield – AI Spam Email Detection System
+# EmailGuardian
 
-SmartSpamShield is a machine learning web application that detects whether an email is **Spam** or **Ham (Legitimate)** using natural language processing and a trained classification model. The application provides a clean Streamlit interface for real-time predictions and supports batch analysis of email files.
+EmailGuardian is an intelligent email screening application that helps users identify suspicious messages before they are opened or acted upon. Instead of presenting itself as a simple spam classifier, the project focuses on **email safety**, **content inspection**, and **risk-aware message filtering** through a machine learning workflow and an interactive web interface.
 
-## Features
+## Why EmailGuardian?
 
-* Real-time spam email prediction
-* Confidence score for each prediction
-* Batch processing of multiple emails
-* TF-IDF text vectorization
-* Trained machine learning classifier (SVM / Logistic Regression)
-* Interactive Streamlit dashboard
-* Simple and modular project structure
+Modern inboxes receive promotional emails, phishing attempts, scams, and malicious messages every day. EmailGuardian provides a lightweight desktop-friendly tool that analyzes email content and estimates whether a message is likely to be **Safe** or **Suspicious**, helping users make faster and safer decisions.
 
-## Tech Stack
+## What It Can Do
 
-* **Python 3.11**
+* Analyze raw email text instantly
+* Classify messages as **Safe** or **Suspicious**
+* Display a confidence score for every prediction
+* Process multiple emails in a single upload
+* Export analysis results for further review
+* Run completely on your local machine
+
+## Built With
+
+* **Python**
 * **Streamlit**
 * **Scikit-learn**
 * **Pandas**
 * **NumPy**
 * **BeautifulSoup4**
 
-## Project Structure
+## Project Layout
 
 ```text
-SmartSpamShield/
-├── app.py
-├── requirements.txt
+EmailGuardian/
+│
+├── app.py                  # Streamlit application
+├── requirements.txt        # Dependencies
 ├── src/
-│   ├── components/
-│   ├── pipeline/
 │   ├── config/
+│   ├── pipeline/
+│   ├── components/
 │   └── utils/
 ├── data/
 ├── outputs/
 └── logs/
 ```
 
-## Installation
+## Getting Started
 
-1. Clone the repository
+### Clone
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SmartSpamShield.git
-cd SmartSpamShield
+git clone https://github.com/YOUR_USERNAME/EmailGuardian.git
+cd EmailGuardian
 ```
 
-2. Create and activate a virtual environment
+### Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Windows PowerShell:
+Activate it:
+
+**Windows PowerShell**
 
 ```powershell
 .\\.venv\\Scripts\\Activate.ps1
 ```
 
-3. Install dependencies
+### Install packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Run the Application
-
-Start the Streamlit application:
+## Launch the App
 
 ```bash
 streamlit run app.py
 ```
 
-Open the local URL shown in the terminal (usually `http://localhost:8501`).
+Once started, open the local address displayed in the terminal (typically `http://localhost:8501`).
 
-## How It Works
+## How EmailGuardian Works
 
-1. The user enters email text or uploads an email file.
-2. The text is cleaned and preprocessed.
-3. A TF-IDF vectorizer converts the text into numerical features.
-4. The trained machine learning model predicts whether the email is **Spam** or **Ham**.
-5. The prediction and confidence score are displayed in the interface.
+1. Email content is collected from user input or uploaded files.
+2. The text is cleaned and normalized.
+3. A TF-IDF feature extractor converts the content into numerical vectors.
+4. A trained machine learning model evaluates the message.
+5. The interface presents a **Safe/Suspicious** verdict along with a confidence estimate.
 
-## Model Training
+## Retraining the Model
 
-To retrain the model with a new dataset:
-
-1. Place the dataset inside the `data/` directory.
-2. Run the training pipeline:
+To train EmailGuardian on a different dataset:
 
 ```bash
 python -m src.pipeline.training_pipeline
 ```
 
-The trained model and vectorizer will be saved inside the `outputs/` directory.
+New model artifacts are stored inside the `outputs/` directory.
 
-## Future Improvements
+## Roadmap
 
-* Email attachment analysis
-* Phishing URL detection
-* Email sender reputation scoring
-* Deep learning (LSTM/BERT) models
-* REST API deployment with FastAPI
-* User authentication and prediction history
+* Phishing URL inspection
+* Attachment risk detection
+* Email source reputation analysis
+* Transformer-based language models
+* FastAPI deployment
+* User dashboard with scan history
 
 ## License
 
-This project is licensed under the **MIT License**.
+Released under the **MIT License**.
 
-## Author
+## Maintainer
 
 **Yashvi Gheewala**
 
