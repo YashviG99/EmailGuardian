@@ -109,7 +109,7 @@ New model artifacts are stored inside the `outputs/` directory.
 
 Released under the **MIT License**.
 
-## Maintainer
+## Author
 
 **Yashvi Gheewala**
 
